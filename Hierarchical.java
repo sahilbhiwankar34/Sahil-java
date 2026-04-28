@@ -1,60 +1,43 @@
-class Staff{
-    int codename;
-    void initialize(int c){
-        codename=c;
-    }
-    
-}
-
-class Teacher extends Staff{
-    String subject;
-    void initialize(String s,int co){
-        super.initialize(co);
-        subject=s;
-        
-
-    }
+class shape{
     void display(){
-        System.out.println("CodeName: "+codename);
-        System.out.println("Subject Taught: "+subject);
+        System.out.println("Shapes Area");
     }
 }
 
-class Typist extends Staff{
-    int speed;
-    void initialize(int sp,int cod){
-        super.initialize(cod);
-        speed=sp;
+class Circle extends shape{
+    double a;
+
+    void Calarea(double area){
+       a=3.14*area*area;
     }
-    void display(){
-        System.out.println("CodeName: "+codename);
-        System.out.println("Speed: "+speed);
+
+    void displayarea(){
+        System.out.println("The are aof circle is: "+a);
     }
 }
 
-class Officer extends Staff{
-    char grade;
-    void initialize(char  g,int code){
-        super.initialize(code);
-        grade=g;
+class Rectangle extends shape{
+    double ae;
+
+    void calarea(double length,double breath){
+        ae=length*breath;
     }
-    void display(){
-        System.out.println("CodeName: "+codename);
-        System.out.println("Grade: "+grade);
+    void displayarea(){
+        System.out.println("Area of rectangle is: "+ae);
     }
 }
-
 
 public class Hierarchical {
     public static void main(String[] args) {
-        Teacher t =new Teacher();
-        t.initialize("English",101);
-        t.display();
-        Typist ty=new Typist();
-        ty.initialize(400,102);
-        ty.display();
-        Officer o=new Officer();
-        o.initialize('A',103);
-        o.display();
+        Circle c=new Circle();
+        c.display();
+        c.Calarea(23.456);
+        c.displayarea();
+
+
+        Rectangle r=new Rectangle();
+        r.display();
+        r.calarea(23, 34.56);
+        r.displayarea();
     }
 }
