@@ -1,55 +1,31 @@
-interface Area{
-    void Calculate();
+interface Filterable{
+     void apply_filter(String n);
+    void reset_filter();
 }
 
-class Rectangle implements Area{
-    
-    int l,b;
-     Rectangle(int length,int breath){
-    l=length;
-    b=breath;
-    }
-    @Override public void Calculate(){
-    System.out.println("Area of Rectangle is: "+ (l*b));
+class ImageProcessor implements Filterable{
+    String s1;
+    ImageProcessor(String s1){
+
+this.s1=s1;
     }
 
+    @Override public void apply_filter(String type){
+     System.out.println("The Image type is: "+type);
     }
 
-    class Circle implements Area{
-       int r;
-        Circle(int radius){
-            r=radius;
-        }
+    @Override public void reset_filter()
+{
+    System.out.println("The filter was reset to: "+s1);
+}
+}
 
-        @Override public void Calculate(){
-            System.out.println("The Area of Circle is: "+ (3.142*r*r));
-        }
-    }
-
-    class Triangle implements Area{
-        int b1,h;
-        Triangle(int base,int height){
-            b1=base;
-            h=height;
-        }
-        @Override public void Calculate(){
-            System.out.println("The area of triangle is "+(0.5*b1*h));
-        }
-    }
 
 
 public class Interface {
- public static void main(String[] args) {
-
-    Area a;
-    a=new Rectangle(34,56);
-    a.Calculate();
-
-    a=new Circle(34);
-    a.Calculate();
-
-    a=new Triangle(5,10);
-    a.Calculate();
-    
-}
+   public static void main(String[] args) {
+       ImageProcessor i=new ImageProcessor("JPG");
+       i.apply_filter("PDF");
+       i.reset_filter();
+   } 
 }
