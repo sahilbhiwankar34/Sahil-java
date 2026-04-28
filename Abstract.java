@@ -1,36 +1,45 @@
-abstract class Sound{
-    abstract void playMessage();
-}
-
-class TextMessage extends Sound{
-    @Override void playMessage(){
-        System.out.println("The text is displayed");
+abstract class Shape{
+    abstract double calculate_area();
+    
+    void displayinfo(){
+        System.out.println("Shapes Area");
     }
 }
 
-class VoiceMessage extends Sound{
-@Override void playMessage(){
-    System.out.println("The voice message is played");
-}
+class Circle extends Shape{
+    double radius;
+    Circle(double radius){
+        this.radius=radius;
+    }
+
+    @Override double calculate_area(){
+        return 3.14*radius*radius;
+    }
+
 }
 
-class FaxMessage extends Sound{
+class Rectangle extends Shape{
+    double length,breath;
+    Rectangle(double length,double breath){
+this.length=length;
+this.breath=breath;
+    }
 
-    @Override void playMessage(){
-        System.out.println("The fax message is Showed");
+    @Override double calculate_area(){
+        return length*breath;
     }
 }
 
 public class Abstract{
     public static void main(String args[]){
- Sound s;
- s=new TextMessage();
- s.playMessage();
+        Shape s;
 
- s=new VoiceMessage();
- s.playMessage();
+        s=new Circle(20.76);
+         s.displayinfo();
+        System.out.println("The area of circle is : "+s.calculate_area());
 
- s=new FaxMessage();
- s.playMessage();
+        s=new Rectangle(23.4,67.8);
+        System.out.println("The area of Rectangle is: "+s.calculate_area());
     }
 }
+
